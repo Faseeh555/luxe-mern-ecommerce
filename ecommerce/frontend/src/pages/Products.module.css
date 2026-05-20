@@ -1,0 +1,207 @@
+.main {
+  padding-top: 90px;
+  min-height: 100vh;
+}
+
+.layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 90px;
+}
+
+.sidebarCard {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filterTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filterGroup label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text2);
+}
+
+.catList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.catBtn {
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text2);
+  transition: background 0.15s, color 0.15s;
+}
+.catBtn:hover { background: var(--bg3); color: var(--text); }
+.catBtn.active { background: rgba(200,169,110,0.12); color: var(--accent); font-weight: 600; }
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceInput {
+  flex: 1;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  width: 0;
+  transition: border-color 0.2s;
+}
+.priceInput:focus { outline: none; border-color: var(--accent); }
+.priceInput::placeholder { color: var(--text3); }
+
+.clearBtn {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text2);
+  transition: border-color 0.2s, color 0.2s;
+  text-align: center;
+}
+.clearBtn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* CONTENT */
+.content { flex: 1; min-width: 0; }
+
+.topBar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.searchWrap {
+  flex: 1;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 12px 44px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+.searchInput:focus { outline: none; border-color: var(--accent); }
+.searchInput::placeholder { color: var(--text3); }
+
+.clearSearch {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text3);
+  font-size: 14px;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.clearSearch:hover { color: var(--text); }
+
+.sortSelect {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 180px;
+}
+.sortSelect:focus { outline: none; border-color: var(--accent); }
+
+.resultsInfo {
+  font-size: 13px;
+  color: var(--text3);
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.skeletonCard {
+  background: var(--bg2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.empty {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 80px;
+  text-align: center;
+  color: var(--text2);
+}
+
+.clearBtn2 {
+  padding: 10px 24px;
+  background: var(--accent);
+  color: #0a0a0f;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; position: static; }
+  .catList { flex-direction: row; flex-wrap: wrap; }
+  .catBtn { padding: 6px 14px; border: 1px solid var(--border); border-radius: 50px; }
+}
